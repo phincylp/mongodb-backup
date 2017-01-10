@@ -1,0 +1,55 @@
+#! /bin/bash -e
+
+function die()
+{
+        echo "Error: $1" >&2
+        exit 1
+}
+
+[ -z "$LOCAL_DIR" ] && die "No LOCAL_DIR dir specified"
+[ -z "$TARGET" ] && die "No package target specified"
+[ -z "$INSTALL_BASE" ] && die "No install base specified"
+[ -z "$PACKAGE" ] && die "No package name specified"
+[ ! -d "$LOCAL_DIR" ] && die "$LOCAL_DIR does not exist"
+
+case "$TARGET" in
+        local) ENV=local;;
+        nm) ENV=nm;;
+        qa) ENV=eng;;
+        eng) ENV=eng;;
+        sb) ENV=sb;;
+        stage) ENV=stage;;
+        vl) ENV=vl;;
+        release) ENV=prod;;
+esac
+[ -z "$ENV" ] && die "Invalid target: $TARGET"
+
+# Create base dir for debian packaging
+#PACKAGE_DIR=$LOCAL_DIR/debian-pkg
+
+#DEB_DIR="$LOCAL_DIR/deb"
+#mkdir -p $DEB_DIR
+
+#cd "$LOCAL_DIR"
+#cp -R "$PACKAGE_DIR"/* "$DEB_DIR"
+
+DEB_DIR=$LOCAL_DIR/deb
+
+mkdir -p $DEB_DIR/DEBIAN
+mkdir -p $DEB_DIR/etc/
+mkdir -p $DEB_DIR/usr/
+
+
+cp -prf $LOCAL_DIR/etc/* $DEB_DIR/etc/
+cp -prf $LOCAL_DIR/DEBIAN/* $DEB_DIR/DEBIAN/
+cp -prf $LOCAL_DIR/usr/* $DEB_DIR/usr/
+
+
+
+
+
+
+
+
+
+

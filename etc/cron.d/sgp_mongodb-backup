@@ -1,0 +1,3 @@
+
+00 12,18 * * * root /usr/share/fk-mongodb-backup/mongodb_backup.pl -p /etc/fk-mongodb-backup/mongodb_snapshot.ini
+

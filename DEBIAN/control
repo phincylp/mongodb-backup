@@ -1,0 +1,8 @@
+Package: fk-mongodb-backup
+Version: 1._VERSION_
+Architecture: all
+Section: domain/ops
+Priority: standard
+Maintainer: Sysops <sysadmin@domain.com>
+Depends: nsca,fk-mongodb 
+Description: Package to create a mongodb backup using mongodump

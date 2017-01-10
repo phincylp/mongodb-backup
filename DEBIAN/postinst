@@ -1,0 +1,5 @@
+#!/bin/bash
+
+chown -Rf root:root /etc/cron.d/sgp_mongodb-backup
+chmod +x /usr/share/fk-mongodb-backup/mongodb_backup.sh
+chmod +x /usr/share/fk-mongodb-backup/mongodb_backup.pl
